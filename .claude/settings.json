@@ -1,0 +1,52 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "autoMemoryEnabled": false,
+  "env": {
+    "ENABLE_CLAUDEAI_MCP_SERVERS": "false"
+  },
+  "model": "opus",
+  "permissions": {
+    "allow": [
+      "Bash(awk:*)",
+      "Bash(cat:*)",
+      "Bash(cut:*)",
+      "Bash(echo:*)",
+      "Bash(find:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh repo view:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git status:*)",
+      "Bash(grep:*)",
+      "Bash(jq:*)",
+      "Bash(ls:*)",
+      "Bash(mix:*)",
+      "Bash(MIX_ENV=test mix:*)",
+      "Bash(mkdir:*)",
+      "Bash(pipx run --spec reuse[charset-normalizer] reuse lint:*)",
+      "Bash(touch:*)",
+      "Bash(wc:*)",
+      "Bash(xargs:*)",
+      "mcp__ide__executeCode",
+      "mcp__ide__getDiagnostics",
+      "Skill",
+      "Write"
+    ],
+    "defaultMode": "auto",
+    "deny": [
+      "Bash(gh api:*)",
+      "Bash(gh pr comment:*)",
+      "Bash(gh pr review:*)",
+      "Edit(.credo.exs)"
+    ]
+  },
+  "showThinkingSummaries": true,
+  "skipAutoPermissionPrompt": true,
+  "skipDangerousModePermissionPrompt": true
+}

@@ -1,0 +1,46 @@
+// SPDX-FileCopyrightText: 2019 ash contributors <https://github.com/ash-project/ash/graphs/contributors>
+//
+// SPDX-License-Identifier: MIT
+{
+  "name": "Ash",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "vscode",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace",
+  "init": true,
+  "mounts": [
+    "source=ash-claude-config,target=/home/vscode/.claude,type=volume",
+    "source=ash-gh-config,target=/home/vscode/.config/gh,type=volume",
+    "source=ash-shell-histories,target=/home/vscode/.cache/erlang-history,type=volume"
+  ],
+  "postCreateCommand": ".devcontainer/post-create.sh",
+  // Livebook serves on 8080 and runs notebook iframes on 8081.
+  "forwardPorts": [8080, 8081],
+  "portsAttributes": {
+    "8080": { "label": "Livebook" },
+    "8081": { "label": "Livebook iframes" }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "elixirLS.suggestSpecs": false,
+        "remote.autoForwardPorts": false,
+        "telemetry.telemetryLevel": "off",
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.scrollback": 100000
+      },
+      "extensions": [
+        "anthropic.claude-code",
+        "eamodio.gitlens",
+        "expertlsp.expert",
+        "github.vscode-github-actions",
+        "github.vscode-pull-request-github",
+        "ketupia.ash-studio",
+        "timonwong.shellcheck"
+      ]
+    }
+  }
+}
